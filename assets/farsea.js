@@ -287,7 +287,7 @@
         if (shown[at]) grid.insertBefore(kit, shown[at]); else grid.appendChild(kit);
       }
       if (empty) { grid.appendChild(empty); empty.hidden = visible > 0 || (kit && !kit.hidden); }
-      if (count) count.textContent = visible === 1 ? count.dataset.one : String(count.dataset.other).replace('{n}', visible);
+      if (count) count.textContent = visible === 1 ? count.dataset.one : String(count.dataset.other).replace('#N#', visible);
     }
     $$('[data-filter]', root).forEach(function (b) {
       b.addEventListener('click', function () {

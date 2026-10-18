@@ -16,7 +16,7 @@
       {%- endfor -%}
     </div>
     <div class="tool-end">
-      <span class="tool-count" data-count data-one="{{ 'collection.count.one' | t: count: 1 }}" data-other="{{ 'collection.count.other' | t: count: '{n}' }}">{{ 'collection.count' | t: count: collection.products_count }}</span>
+      <span class="tool-count" data-count data-one="{{ 'collection.count.one' | t: count: 1 }}" data-other="{{ 'collection.count.other' | t: count: '#N#' }}">{{ 'collection.count' | t: count: collection.products_count }}</span>
       <label for="sort-{{ section.id }}" class="vh">{{ 'collection.sort_label' | t }}</label>
       <select id="sort-{{ section.id }}" data-sort>
         <option value="featured">{{ 'collection.sort_featured' | t }}</option>
