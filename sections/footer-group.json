@@ -2,7 +2,16 @@
   "type": "footer",
   "name": "Footer group",
   "sections": {
-    "footer": { "type": "footer", "settings": { "tagline": "Aesthetic medicine clinic in Castiglione di Mare.", "menu_heading": "Menu", "legal_line": "VAT 00000000000" } }
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "tagline": "Aesthetic medicine clinic in Castiglione di Mare.",
+        "menu_heading": "Menu",
+        "legal_line": "VAT 00000000000"
+      }
+    }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
