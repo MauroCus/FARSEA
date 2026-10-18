@@ -1,0 +1,16 @@
+<div class="scrim" data-scrim></div>
+<aside class="sheet" id="CartDrawer" role="dialog" aria-modal="true" aria-labelledby="CartDrawerTitle" hidden>
+  <div class="sheet-head">
+    <h2 id="CartDrawerTitle">{{ 'cart.title' | t }} <span class="price" data-cart-head style="color:var(--mute)"></span></h2>
+    <button type="button" class="x" data-close-cart aria-label="{{ 'general.close' | t }}">×</button>
+  </div>
+  <div class="ship-bar" data-ship-bar hidden></div>
+  <div class="bag-body" data-cart-body>
+    <div class="bag-empty"><p style="margin:0">{{ 'cart.empty' | t }}</p><a class="btn btn-line" href="{{ routes.all_products_collection_url }}">{{ 'cart.browse' | t }}</a></div>
+  </div>
+  <div class="bag-foot" data-cart-foot hidden>
+    <div class="row total"><span>{{ 'cart.subtotal' | t }}</span><span class="price" data-cart-total></span></div>
+    <form action="{{ routes.cart_url }}" method="post" style="display:grid"><button type="submit" name="checkout" class="btn btn-ink">{{ 'cart.checkout' | t }} →</button></form>
+    <small>{{ 'cart.note' | t }}</small>
+  </div>
+</aside>

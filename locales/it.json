@@ -1,0 +1,95 @@
+{
+  "general": {
+    "skip": "Vai al contenuto",
+    "menu": "Menu",
+    "close": "Chiudi",
+    "book": "Prenota una visita",
+    "language": "Lingua",
+    "home": "Home",
+    "back_home": "Torna alla home",
+    "search": "Cerca",
+    "search_placeholder": "Cerca prodotti",
+    "no_results": "Nessun risultato per “{{ terms }}”.",
+    "page_not_found": "Pagina non trovata",
+    "page_not_found_text": "La pagina che cerchi non esiste o è stata spostata.",
+    "password_title": "Apertura a breve",
+    "password_enter": "Inserisci la password del negozio",
+    "password_submit": "Entra"
+  },
+  "header": {
+    "bag": "Borsa"
+  },
+  "slider": {
+    "previous": "Precedente",
+    "next": "Successiva"
+  },
+  "products": {
+    "add": "Aggiungi",
+    "added": "Aggiunto",
+    "add_to_bag": "Aggiungi alla borsa",
+    "sold_out": "Esaurito",
+    "less": "Meno",
+    "more": "Più",
+    "quantity": "Quantità",
+    "vat_included": "IVA inclusa",
+    "how_to_use": "Come si usa",
+    "ingredients": "Ingredienti chiave",
+    "pairs_with": "Consigliato con",
+    "see_treatments": "Vedi i trattamenti",
+    "complete_routine": "Completa la routine",
+    "ship_note": "Spedito in 1–2 giorni lavorativi",
+    "bestseller": "Più venduto",
+    "new": "Novità",
+    "image": "Immagine {{ number }}"
+  },
+  "collection": {
+    "all": "Tutti",
+    "count": {
+      "one": "{{ count }} prodotto",
+      "other": "{{ count }} prodotti"
+    },
+    "empty": "Nessun prodotto per questo filtro.",
+    "sort_label": "Ordina",
+    "sort_featured": "In evidenza",
+    "sort_asc": "Prezzo crescente",
+    "sort_desc": "Prezzo decrescente",
+    "filter_label": "Filtra",
+    "save": "Risparmi {{ amount }}",
+    "add_kit": "Aggiungi il kit"
+  },
+  "cart": {
+    "title": "Borsa",
+    "empty": "La tua borsa è vuota.",
+    "browse": "Scopri i prodotti",
+    "remove": "Rimuovi",
+    "subtotal": "Subtotale",
+    "total": "Totale",
+    "checkout": "Procedi al pagamento",
+    "note": "IVA inclusa. Spedizione e codici sconto vengono calcolati al pagamento.",
+    "away": "Ti mancano {amount} per la spedizione gratuita",
+    "unlocked": "Spedizione gratuita sbloccata",
+    "added": "{product} aggiunto alla borsa",
+    "error": "Qualcosa è andato storto. Riprova.",
+    "update": "Aggiorna"
+  },
+  "contact": {
+    "first_name": "Nome",
+    "last_name": "Cognome",
+    "email": "Email",
+    "phone": "Telefono",
+    "topic": "Argomento",
+    "message": "Messaggio",
+    "consent": "Ho letto l'informativa privacy e acconsento al trattamento dei dati.",
+    "send": "Invia messaggio",
+    "success": "Grazie, il tuo messaggio è arrivato. Ti ricontatteremo a breve.",
+    "address": "Indirizzo",
+    "hours": "Orari"
+  },
+  "nav": {
+    "concerns": "Esigenze",
+    "treatments": "Soluzioni",
+    "shop": "Shop",
+    "about": "Chi siamo",
+    "contact": "Contatti"
+  }
+}

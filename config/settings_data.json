@@ -1,0 +1,15 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "color_sand": "#f3ece2",
+      "color_shell": "#fbf8f3",
+      "color_ink": "#1d2326",
+      "color_mute": "#6c6a63",
+      "color_sea": "#2f5d68",
+      "color_coral": "#d9a48f",
+      "color_terra": "#b4573a",
+      "free_shipping_threshold": 70
+    }
+  }
+}

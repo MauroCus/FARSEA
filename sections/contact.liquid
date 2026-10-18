@@ -1,0 +1,56 @@
+{%- assign topics = section.settings.topics | split: ',' -%}
+<section id="{{ section.settings.anchor | default: 'contatti' }}" class="wrap">
+  <div class="contact-grid">
+    <div>
+      <h2>{{ section.settings.heading }}</h2>
+      <dl class="info">
+        {%- if settings.address != blank -%}<div><dt class="eyebrow">{{ 'contact.address' | t }}</dt><dd>{{ settings.address }}</dd></div>{%- endif -%}
+        {%- if settings.phone != blank -%}<div><dt class="eyebrow">{{ 'contact.phone' | t }}</dt><dd>{{ settings.phone }}</dd></div>{%- endif -%}
+        {%- if settings.email != blank -%}<div><dt class="eyebrow">{{ 'contact.email' | t }}</dt><dd>{{ settings.email }}</dd></div>{%- endif -%}
+        {%- if section.settings.hours != blank -%}<div><dt class="eyebrow">{{ 'contact.hours' | t }}</dt><dd>{{ section.settings.hours }}</dd></div>{%- endif -%}
+      </dl>
+      {%- if section.settings.note != blank -%}<p class="ph-note">{{ section.settings.note }}</p>{%- endif -%}
+    </div>
+    <div>
+      {%- form 'contact', id: 'ContactForm' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="done">{{ 'contact.success' | t }}</div>
+        {%- else -%}
+          {%- if form.errors -%}<p class="ph-note" style="color:#a2422e;margin:0">{{ form.errors | default_errors }}</p>{%- endif -%}
+          <div class="row2">
+            <label for="c-first">{{ 'contact.first_name' | t }}<input id="c-first" name="contact[first_name]" required autocomplete="given-name"></label>
+            <label for="c-last">{{ 'contact.last_name' | t }}<input id="c-last" name="contact[last_name]" autocomplete="family-name"></label>
+          </div>
+          <div class="row2">
+            <label for="c-email">{{ 'contact.email' | t }}<input id="c-email" name="contact[email]" type="email" required autocomplete="email" value="{{ form.email }}"></label>
+            <label for="c-phone">{{ 'contact.phone' | t }}<input id="c-phone" name="contact[phone]" type="tel" autocomplete="tel"></label>
+          </div>
+          {%- if topics.size > 0 -%}
+            <label for="c-topic">{{ 'contact.topic' | t }}
+              <select id="c-topic" name="contact[topic]">
+                {%- for topic in topics -%}<option>{{ topic | strip }}</option>{%- endfor -%}
+              </select>
+            </label>
+          {%- endif -%}
+          <label for="c-msg">{{ 'contact.message' | t }}<textarea id="c-msg" name="contact[body]"></textarea></label>
+          <label class="consent" for="c-privacy"><input id="c-privacy" name="contact[privacy]" value="yes" type="checkbox" required> <span>{{ 'contact.consent' | t }}</span></label>
+          <div><button class="btn btn-ink" type="submit" style="border:0;cursor:pointer">{{ 'contact.send' | t }}</button></div>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "A question? <em>Write to us</em> and we'll reply as soon as we can." },
+    { "type": "text", "id": "hours", "label": "Opening hours", "default": "Mon – Fri 9:00 – 19:00 · Sat 9:00 – 13:00" },
+    { "type": "text", "id": "topics", "label": "Topics (separated by commas)", "default": "First consultation, Injectables, Lasers, Hair treatments, Shop order, Other" },
+    { "type": "text", "id": "note", "label": "Small note", "default": "Address, phone and email are set in Theme settings → Contact details." },
+    { "type": "text", "id": "anchor", "label": "Section anchor", "default": "contatti" }
+  ],
+  "presets": [{ "name": "Contact" }]
+}
+{% endschema %}

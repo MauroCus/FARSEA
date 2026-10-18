@@ -1,0 +1,40 @@
+{%- comment -%}
+  Wide tile for a bundle product.
+  - kit: product
+{%- endcomment -%}
+{%- liquid
+  assign variant = kit.selected_or_first_available_variant
+  assign items = kit.metafields.custom.kit_items.value | newline_to_br | split: '<br />'
+  assign tags_lower = kit.tags | join: '|' | downcase
+-%}
+<article class="kit" data-kit data-card data-tags="{{ tags_lower | escape }}" data-price="{{ kit.price }}" data-index="{{ desktop_at | plus: 0.5 }}">
+  <div class="kit-copy">
+    <div>
+      {%- if kit.compare_at_price > kit.price -%}
+        {%- assign pct = kit.compare_at_price | minus: kit.price | times: 100 | divided_by: kit.compare_at_price | round -%}
+        <span class="eyebrow" style="color:var(--coral)">−{{ pct }}%</span>
+      {%- endif -%}
+      <h3><a href="{{ kit.url }}">{{ kit.title }}</a></h3>
+      {%- if kit.description != blank -%}<div class="rte">{{ kit.description | strip_html | truncate: 160 }}</div>{%- endif -%}
+      {%- if kit.metafields.custom.kit_items != blank -%}
+        <ul>
+          {%- for item in items -%}
+            {%- assign parts = item | strip | split: '|' -%}
+            {%- if parts[0] != blank -%}<li><span>{{ parts[0] | strip }}</span><span style="opacity:.6">{{ parts[1] | strip }}</span></li>{%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+    <div style="display:grid;gap:14px">
+      <div class="kit-price">
+        <span class="price">{{ kit.price | money }}</span>
+        {%- if kit.compare_at_price > kit.price -%}
+          <s class="price">{{ kit.compare_at_price | money }}</s>
+          {%- assign saving = kit.compare_at_price | minus: kit.price | money -%}
+          <small>{{ 'collection.save' | t: amount: saving }}</small>
+        {%- endif -%}
+      </div>
+      <button type="button" class="btn" data-add="{{ variant.id }}" data-title="{{ kit.title | escape }}"{% unless variant.available %} disabled{% endunless %}>{{ 'collection.add_kit' | t }}</button>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,41 @@
+{%- assign featured = section.settings.product -%}
+<div class="s-hero">
+  <div class="s-hero-copy wrap">
+    {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+    <h1>{{ section.settings.heading }}</h1>
+    {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
+    <div class="s-hero-cta">
+      {%- if section.settings.button_1_label != blank -%}<a class="btn btn-ink" href="{{ section.settings.button_1_link | default: '#shop' }}">{{ section.settings.button_1_label }}</a>{%- endif -%}
+      {%- if section.settings.button_2_label != blank -%}<a class="btn btn-line" href="{{ section.settings.button_2_link | default: '#routine' }}">{{ section.settings.button_2_label }}</a>{%- endif -%}
+    </div>
+  </div>
+  <div class="s-hero-img">
+    {% render 'img', image: section.settings.image, fallback: section.settings.fallback, alt: '', loading: 'eager', sizes: '(max-width: 980px) 100vw, 50vw' %}
+    {%- if featured != blank -%}
+      <a class="s-hero-tag" href="{{ featured.url }}">
+        <span><b>{{ featured.title }}</b><span>{{ section.settings.tag_text | default: featured.metafields.custom.subtitle.value }}</span></span>
+        <span aria-hidden="true" style="font-size:18px">→</span>
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shop hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small label", "default": "FARSEA skincare" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Clinic care, <em>at home</em>", "info": "Italic words use the terracotta accent." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "The products our doctors use around every treatment, chosen to prepare your skin, protect results and keep your routine simple." },
+    { "type": "text", "id": "button_1_label", "label": "First button", "default": "Shop the range" },
+    { "type": "text", "id": "button_1_link", "label": "First button link", "default": "#shop" },
+    { "type": "text", "id": "button_2_label", "label": "Second button", "default": "Build your routine" },
+    { "type": "text", "id": "button_2_link", "label": "Second button link", "default": "#routine" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "fallback", "label": "Placeholder image (theme file)", "default": "img-shop-hero.webp" },
+    { "type": "product", "id": "product", "label": "Featured product (tag on the image)" },
+    { "type": "text", "id": "tag_text", "label": "Tag text", "default": "Bestseller · Vitamin C serum" }
+  ],
+  "presets": [{ "name": "Shop hero" }]
+}
+{% endschema %}

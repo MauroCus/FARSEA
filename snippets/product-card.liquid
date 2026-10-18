@@ -1,0 +1,46 @@
+{%- comment -%}
+  Product card for the shop grid.
+  - product: product object
+  - index: position in the grid (used for "Featured" sorting)
+{%- endcomment -%}
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign subtitle = product.metafields.custom.subtitle.value
+  assign size = product.metafields.custom.size.value
+  assign tags_lower = product.tags | join: '|' | downcase
+  assign second = product.media | where: 'media_type', 'image' | slice: 1, 1 | first
+-%}
+<article class="p-card" data-card data-tags="{{ tags_lower | escape }}" data-price="{{ product.price }}" data-index="{{ index }}">
+  <a class="card-link" href="{{ product.url }}" aria-label="{{ product.title | escape }}{% if subtitle %}, {{ subtitle | escape }}{% endif %}"></a>
+  <div class="media">
+    {%- if product.tags contains 'bestseller' -%}
+      <span class="badge">{{ 'products.bestseller' | t }}</span>
+    {%- elsif product.tags contains 'new' -%}
+      <span class="badge new">{{ 'products.new' | t }}</span>
+    {%- endif -%}
+    {%- if product.featured_media -%}
+      {{ product.featured_media | image_url: width: 900 | image_tag: alt: product.featured_media.alt, loading: 'lazy', widths: '400, 600, 900', sizes: '(max-width: 600px) 50vw, (max-width: 980px) 50vw, 33vw' }}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+    {%- endif -%}
+    {%- if second -%}
+      {{ second | image_url: width: 900 | image_tag: alt: '', class: 'alt', loading: 'lazy', widths: '400, 600, 900', sizes: '(max-width: 980px) 50vw, 33vw' }}
+    {%- endif -%}
+    <div class="quick">
+      <span class="q-label">{{ size }}</span>
+      <button type="button" class="add" data-add="{{ variant.id }}" data-title="{{ product.title | escape }}"{% unless variant.available %} disabled{% endunless %}>
+        {%- if variant.available -%}+ {{ 'products.add' | t }}{%- else -%}{{ 'products.sold_out' | t }}{%- endif -%}
+      </button>
+    </div>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>{{ product.title }}</h3>
+      {%- if subtitle or size -%}<span class="sub">{{ subtitle }}{% if subtitle and size %} · {% endif %}{{ size }}</span>{%- endif -%}
+    </div>
+    <span class="price">
+      {%- if product.compare_at_price > product.price -%}<s>{{ product.compare_at_price | money }}</s>{%- endif -%}
+      {{ product.price | money }}
+    </span>
+  </div>
+</article>

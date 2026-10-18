@@ -1,0 +1,95 @@
+{
+  "general": {
+    "skip": "Skip to content",
+    "menu": "Menu",
+    "close": "Close",
+    "book": "Book a visit",
+    "language": "Language",
+    "home": "Home",
+    "back_home": "Back to home",
+    "search": "Search",
+    "search_placeholder": "Search products",
+    "no_results": "No results for “{{ terms }}”.",
+    "page_not_found": "Page not found",
+    "page_not_found_text": "The page you're looking for doesn't exist or has moved.",
+    "password_title": "Opening soon",
+    "password_enter": "Enter store password",
+    "password_submit": "Enter"
+  },
+  "header": {
+    "bag": "Bag"
+  },
+  "slider": {
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "products": {
+    "add": "Add",
+    "added": "Added",
+    "add_to_bag": "Add to bag",
+    "sold_out": "Sold out",
+    "less": "Less",
+    "more": "More",
+    "quantity": "Quantity",
+    "vat_included": "VAT included",
+    "how_to_use": "How to use",
+    "ingredients": "Key ingredients",
+    "pairs_with": "Recommended with",
+    "see_treatments": "See treatments",
+    "complete_routine": "Complete the routine",
+    "ship_note": "Ships in 1–2 working days",
+    "bestseller": "Bestseller",
+    "new": "New",
+    "image": "Image {{ number }}"
+  },
+  "collection": {
+    "all": "All",
+    "count": {
+      "one": "{{ count }} product",
+      "other": "{{ count }} products"
+    },
+    "empty": "No products match this filter yet.",
+    "sort_label": "Sort",
+    "sort_featured": "Featured",
+    "sort_asc": "Price: low to high",
+    "sort_desc": "Price: high to low",
+    "filter_label": "Filter",
+    "save": "You save {{ amount }}",
+    "add_kit": "Add the kit"
+  },
+  "cart": {
+    "title": "Bag",
+    "empty": "Your bag is empty.",
+    "browse": "Browse products",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "checkout": "Checkout",
+    "note": "Taxes included. Shipping and discount codes are calculated at checkout.",
+    "away": "You're {amount} away from free shipping",
+    "unlocked": "Free shipping unlocked",
+    "added": "{product} added to your bag",
+    "error": "Something went wrong. Please try again.",
+    "update": "Update"
+  },
+  "contact": {
+    "first_name": "First name",
+    "last_name": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "topic": "Topic",
+    "message": "Message",
+    "consent": "I have read the privacy policy and agree to the processing of my data.",
+    "send": "Send message",
+    "success": "Thank you, we've received your message. We'll be in touch shortly.",
+    "address": "Address",
+    "hours": "Hours"
+  },
+  "nav": {
+    "concerns": "Concerns",
+    "treatments": "Treatments",
+    "shop": "Shop",
+    "about": "About",
+    "contact": "Contact"
+  }
+}

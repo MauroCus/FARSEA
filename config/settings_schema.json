@@ -1,0 +1,50 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "FARSEA",
+    "theme_version": "1.0.0",
+    "theme_author": "Digimates",
+    "theme_documentation_url": "https://www.shopify.com",
+    "theme_support_url": "https://www.shopify.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "color", "id": "color_sand", "label": "Page background", "default": "#f3ece2" },
+      { "type": "color", "id": "color_shell", "label": "Raised surfaces", "default": "#fbf8f3" },
+      { "type": "color", "id": "color_ink", "label": "Text and footer", "default": "#1d2326" },
+      { "type": "color", "id": "color_mute", "label": "Secondary text", "default": "#6c6a63" },
+      { "type": "color", "id": "color_sea", "label": "Accent (sea)", "default": "#2f5d68" },
+      { "type": "color", "id": "color_coral", "label": "Highlight (coral)", "default": "#d9a48f" },
+      { "type": "color", "id": "color_terra", "label": "Shop accent (terracotta)", "default": "#b4573a" }
+    ]
+  },
+  {
+    "name": "Shop",
+    "settings": [
+      { "type": "number", "id": "free_shipping_threshold", "label": "Free shipping from (amount in store currency)", "default": 70, "info": "Used for the progress bar in the bag. Set the real shipping rates in Settings → Shipping and delivery." }
+    ]
+  },
+  {
+    "name": "Contact details",
+    "settings": [
+      { "type": "text", "id": "address", "label": "Address", "default": "Via del Porto 00, Castiglione di Mare" },
+      { "type": "text", "id": "phone", "label": "Phone", "default": "+39 000 000 0000" },
+      { "type": "text", "id": "email", "label": "Email", "default": "info@farsea.it" }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      { "type": "url", "id": "social_instagram", "label": "Instagram" },
+      { "type": "url", "id": "social_facebook", "label": "Facebook" },
+      { "type": "url", "id": "social_linkedin", "label": "LinkedIn" }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      { "type": "image_picker", "id": "favicon", "label": "Favicon image", "info": "Square PNG, at least 64 × 64 px" }
+    ]
+  }
+]

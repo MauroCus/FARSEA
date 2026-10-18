@@ -1,0 +1,252 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "treatments": {
+      "type": "treatments",
+      "blocks": {
+        "t0": {
+          "type": "treatment",
+          "settings": {
+            "fallback": "img-mature-woman.webp",
+            "image_alt": "Portrait of a woman with natural, radiant skin",
+            "title": "Injectables",
+            "text": "Hyaluronic acid, botulinum toxin, skin boosters",
+            "link": "#contatti"
+          }
+        },
+        "t1": {
+          "type": "treatment",
+          "settings": {
+            "fallback": "img-woman-sky.webp",
+            "image_alt": "Woman with her face to the sun against a blue sky",
+            "title": "Aesthetic medicine",
+            "text": "Hydrafacial, peels, radiofrequency, microneedling",
+            "link": "#contatti"
+          }
+        },
+        "t2": {
+          "type": "treatment",
+          "settings": {
+            "fallback": "img-legs-light.webp",
+            "image_alt": "Legs in warm afternoon light",
+            "title": "Permanent hair removal",
+            "text": "Medical laser and electrolysis",
+            "link": "#contatti"
+          }
+        },
+        "t3": {
+          "type": "treatment",
+          "settings": {
+            "fallback": "img-hand-shoulder.webp",
+            "image_alt": "Hand resting on a sunlit shoulder",
+            "title": "Lasers",
+            "text": "Pigmentation, veins, tattoo removal",
+            "link": "#contatti"
+          }
+        },
+        "t4": {
+          "type": "treatment",
+          "settings": {
+            "fallback": "img-hair-flying.webp",
+            "image_alt": "Woman with blonde hair blowing in the wind",
+            "title": "Hair treatments",
+            "text": "Mesotherapy, exosomes, LED therapy",
+            "link": "#contatti"
+          }
+        },
+        "t5": {
+          "type": "treatment",
+          "settings": {
+            "fallback": "img-man-back.webp",
+            "image_alt": "Man seen from behind with wet hair",
+            "title": "Hair transplant",
+            "text": "FUE technique with dedicated follow-up",
+            "link": "#contatti"
+          }
+        }
+      },
+      "block_order": [
+        "t0",
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5"
+      ],
+      "settings": {}
+    },
+    "concerns": {
+      "type": "concerns",
+      "blocks": {
+        "c0": {
+          "type": "concern",
+          "settings": {
+            "title": "Acne",
+            "fallback": "img-glow-skin.webp",
+            "link": "#contatti"
+          }
+        },
+        "c1": {
+          "type": "concern",
+          "settings": {
+            "title": "Unwanted hair",
+            "fallback": "img-legs-sun.webp",
+            "link": "#contatti"
+          }
+        },
+        "c2": {
+          "type": "concern",
+          "settings": {
+            "title": "Wrinkles",
+            "fallback": "img-mature-smile.webp",
+            "link": "#contatti"
+          }
+        },
+        "c3": {
+          "type": "concern",
+          "settings": {
+            "title": "Radiance",
+            "fallback": "img-profile-glow.webp",
+            "link": "#contatti"
+          }
+        },
+        "c4": {
+          "type": "concern",
+          "settings": {
+            "title": "Pigmentation",
+            "fallback": "img-freckles-face.webp",
+            "link": "#contatti"
+          }
+        },
+        "c5": {
+          "type": "concern",
+          "settings": {
+            "title": "Hair loss",
+            "fallback": "img-hair-waves.webp",
+            "link": "#contatti"
+          }
+        },
+        "c6": {
+          "type": "concern",
+          "settings": {
+            "title": "Lips",
+            "fallback": "img-lips-close.webp",
+            "link": "#contatti"
+          }
+        },
+        "c7": {
+          "type": "concern",
+          "settings": {
+            "title": "Skin laxity",
+            "fallback": "img-neck-sun.webp",
+            "link": "#contatti"
+          }
+        },
+        "c8": {
+          "type": "concern",
+          "settings": {
+            "title": "Scars and marks",
+            "fallback": "img-arm-sky.webp",
+            "link": "#contatti"
+          }
+        },
+        "c9": {
+          "type": "concern",
+          "settings": {
+            "title": "Tattoo removal",
+            "fallback": "img-tattoo-wave.webp",
+            "link": "#contatti"
+          }
+        }
+      },
+      "block_order": [
+        "c0",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9"
+      ],
+      "settings": {}
+    },
+    "reveal": {
+      "type": "reveal",
+      "settings": {}
+    },
+    "approach": {
+      "type": "approach",
+      "blocks": {
+        "a0": {
+          "type": "principle",
+          "settings": {
+            "title": "Medical expertise",
+            "text": "Every treatment is carried out or supervised by specialist doctors.",
+            "fallback_1": "img-crow-smile.webp",
+            "alt_1": "Smiling woman with fine lines around the eyes",
+            "fallback_2": "img-liquid-drops.webp",
+            "alt_2": "Drops of serum on a light surface"
+          }
+        },
+        "a1": {
+          "type": "principle",
+          "settings": {
+            "title": "Advanced technology",
+            "text": "Certified lasers and devices, chosen for effectiveness and safety.",
+            "fallback_1": "img-hands-hair.webp",
+            "alt_1": "Woman with eyes closed, hands in her hair, in warm light",
+            "fallback_2": "img-rocks-sea.webp",
+            "alt_2": "Rocks in clear Mediterranean water"
+          }
+        },
+        "a2": {
+          "type": "principle",
+          "settings": {
+            "title": "Personalised care",
+            "text": "A plan written for you, with clear timing and goals.",
+            "fallback_1": "img-smile-freckles.webp",
+            "alt_1": "Smiling woman with freckles, close-up",
+            "fallback_2": "img-skin-drops.webp",
+            "alt_2": "Close-up of skin with water drops"
+          }
+        },
+        "a3": {
+          "type": "principle",
+          "settings": {
+            "title": "Natural results",
+            "text": "Refine, never transform. The goal is to look rested, not different.",
+            "fallback_1": "img-sea-texture.webp",
+            "alt_1": "Surface of the sea",
+            "fallback_2": "",
+            "alt_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "a0",
+        "a1",
+        "a2",
+        "a3"
+      ],
+      "settings": {}
+    },
+    "contact": {
+      "type": "contact",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "treatments",
+    "concerns",
+    "reveal",
+    "approach",
+    "contact"
+  ]
+}

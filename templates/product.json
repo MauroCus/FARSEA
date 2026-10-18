@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "related_collection": "all"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

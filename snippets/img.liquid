@@ -1,0 +1,16 @@
+{%- comment -%}
+  Responsive image with a theme fallback.
+  - image: image picked in the editor (optional)
+  - fallback: theme asset file used when no image is picked
+  - alt, class, loading ('lazy' by default), sizes, style, width (largest width)
+{%- endcomment -%}
+{%- liquid
+  assign load = loading | default: 'lazy'
+  assign max = width | default: 1600
+  assign alt_text = alt | default: image.alt | escape
+-%}
+{%- if image != blank -%}
+  {{ image | image_url: width: max | image_tag: alt: alt_text, class: class, loading: load, sizes: sizes, widths: '400, 700, 1000, 1400, 1800', style: style }}
+{%- elsif fallback != blank -%}
+  <img src="{{ fallback | asset_url }}" alt="{{ alt_text }}"{% if class %} class="{{ class }}"{% endif %} loading="{{ load }}"{% if style %} style="{{ style }}"{% endif %} width="1000" height="1250">
+{%- endif -%}

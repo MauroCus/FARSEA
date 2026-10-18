@@ -1,0 +1,8 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "header": { "type": "header", "settings": { "button_label": "Book a visit", "button_link": "/#contatti", "show_language": true } }
+  },
+  "order": ["header"]
+}

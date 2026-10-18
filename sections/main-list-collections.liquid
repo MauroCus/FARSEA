@@ -1,0 +1,14 @@
+<section class="wrap">
+  <h1 style="font-size:clamp(30px,3.6vw,52px);margin-bottom:28px">{{ 'nav.shop' | t }}</h1>
+  <div class="p-grid">
+    {%- for collection in collections -%}
+      <a class="p-card" href="{{ collection.url }}">
+        <div class="media">{%- if collection.featured_image -%}{{ collection.featured_image | image_url: width: 800 | image_tag: alt: collection.title, loading: 'lazy' }}{%- endif -%}</div>
+        <div class="card-info"><h3>{{ collection.title }}</h3></div>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "Collections list", "settings": [] }
+{% endschema %}

@@ -1,0 +1,50 @@
+<section id="{{ section.settings.anchor | default: 'approccio' }}" class="approach wrap">
+  <div class="head">
+    <h2>{{ section.settings.heading }}</h2>
+    {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
+  </div>
+  {%- for block in section.blocks -%}
+    {%- liquid
+      assign has_second = false
+      if block.settings.image_2 != blank or block.settings.fallback_2 != blank
+        assign has_second = true
+      endif
+    -%}
+    <div class="a-row" {{ block.shopify_attributes }}>
+      <span class="n">{{ forloop.index }}</span>
+      <div><h3>{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p></div>
+      <div class="ph{% unless has_second %} wide{% endunless %}">{% render 'img', image: block.settings.image_1, fallback: block.settings.fallback_1, alt: block.settings.alt_1, width: 1200 %}</div>
+      {%- if has_second -%}
+        <div class="ph">{% render 'img', image: block.settings.image_2, fallback: block.settings.fallback_2, alt: block.settings.alt_2, width: 900 %}</div>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+</section>
+
+{% schema %}
+{
+  "name": "Approach",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our approach" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Four principles guide every treatment, from the first conversation to the follow-up visits." },
+    { "type": "text", "id": "anchor", "label": "Section anchor", "default": "approccio" }
+  ],
+  "blocks": [
+    {
+      "type": "principle",
+      "name": "Principle",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Principle" },
+        { "type": "textarea", "id": "text", "label": "Text" },
+        { "type": "image_picker", "id": "image_1", "label": "First image" },
+        { "type": "text", "id": "alt_1", "label": "First image description" },
+        { "type": "text", "id": "fallback_1", "label": "First placeholder (theme file)" },
+        { "type": "image_picker", "id": "image_2", "label": "Second image", "info": "Leave both second image fields empty to show one wide image." },
+        { "type": "text", "id": "alt_2", "label": "Second image description" },
+        { "type": "text", "id": "fallback_2", "label": "Second placeholder (theme file)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Approach" }]
+}
+{% endschema %}

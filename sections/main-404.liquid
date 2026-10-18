@@ -1,0 +1,10 @@
+<section class="wrap">
+  <div class="page-wrap">
+    <h1>{{ 'general.page_not_found' | t }}</h1>
+    <p style="color:var(--mute)">{{ 'general.page_not_found_text' | t }}</p>
+    <a class="btn btn-ink" href="{{ routes.root_url }}">{{ 'general.back_home' | t }}</a>
+  </div>
+</section>
+{% schema %}
+{ "name": "404", "settings": [] }
+{% endschema %}

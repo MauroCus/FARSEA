@@ -1,0 +1,207 @@
+{
+  "sections": {
+    "hero": {
+      "type": "shop-hero",
+      "settings": {
+        "product": "siero-luce"
+      }
+    },
+    "trust": {
+      "type": "trust-bar",
+      "blocks": {
+        "t0": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "text": "Free shipping over €70"
+          }
+        },
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "doctor",
+            "text": "Selected by our doctors"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "returns",
+            "text": "14-day returns on unopened products"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "text": "Secure payment"
+          }
+        }
+      },
+      "block_order": [
+        "t0",
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {}
+    },
+    "grid": {
+      "type": "main-collection",
+      "blocks": {
+        "f0": {
+          "type": "filter",
+          "settings": {
+            "label": "Daily essentials",
+            "tag": "line:daily"
+          }
+        },
+        "f1": {
+          "type": "filter",
+          "settings": {
+            "label": "Targeted care",
+            "tag": "line:targeted"
+          }
+        },
+        "f2": {
+          "type": "filter",
+          "settings": {
+            "label": "Hair",
+            "tag": "line:hair"
+          }
+        },
+        "f3": {
+          "type": "filter",
+          "settings": {
+            "label": "Radiance",
+            "tag": "concern:radiance"
+          }
+        },
+        "f4": {
+          "type": "filter",
+          "settings": {
+            "label": "Fine lines",
+            "tag": "concern:lines"
+          }
+        },
+        "f5": {
+          "type": "filter",
+          "settings": {
+            "label": "Blemishes",
+            "tag": "concern:blemish"
+          }
+        },
+        "f6": {
+          "type": "filter",
+          "settings": {
+            "label": "Dark spots",
+            "tag": "concern:pigment"
+          }
+        },
+        "f7": {
+          "type": "filter",
+          "settings": {
+            "label": "After treatment",
+            "tag": "concern:after-treatment"
+          }
+        }
+      },
+      "block_order": [
+        "f0",
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7"
+      ],
+      "settings": {
+        "kit": "kit-post-trattamento",
+        "kit_position": 3
+      }
+    },
+    "routine": {
+      "type": "routine",
+      "blocks": {
+        "s0": {
+          "type": "step",
+          "settings": {
+            "step": "Cleanse",
+            "text": "Start with a gentle wash that keeps the skin comfortable.",
+            "product": "acqua-detergente"
+          }
+        },
+        "s1": {
+          "type": "step",
+          "settings": {
+            "step": "Treat",
+            "text": "Choose the serum or cream for your concern.",
+            "product": "siero-luce"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "step": "Protect",
+            "text": "Lock in moisture, then finish with SPF every morning.",
+            "product": "schermo-spf-50"
+          }
+        }
+      },
+      "block_order": [
+        "s0",
+        "s1",
+        "s2"
+      ],
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q0": {
+          "type": "question",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Orders ship from Castiglione di Mare within 1–2 working days. Delivery in Italy takes 2–4 working days. Shipping is free on orders over €70.</p>"
+          }
+        },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use these products after a treatment?",
+            "answer": "<p>Yes, that's what they are made for. Your doctor will tell you which products to use and when to start, especially for retinal and vitamin C after lasers or peels.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I return a product?",
+            "answer": "<p>Unopened products can be returned within 14 days of delivery. Write to us and we'll arrange the return.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I collect my order at the clinic?",
+            "answer": "<p>Yes. Choose local pickup at checkout and we'll have it ready at your next appointment.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "grid",
+    "routine",
+    "faq"
+  ]
+}

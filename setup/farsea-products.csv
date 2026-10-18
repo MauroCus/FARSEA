@@ -1,0 +1,25 @@
+Handle,Title,Body (HTML),Vendor,Type,Tags,Published,Option1 Name,Option1 Value,Variant SKU,Variant Grams,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Compare At Price,Variant Requires Shipping,Variant Taxable,Status,Subtitle (product.metafields.custom.subtitle),Size (product.metafields.custom.size),Benefits (product.metafields.custom.benefits),How to use (product.metafields.custom.how_to_use),Ingredients (product.metafields.custom.ingredients),Pairs with (product.metafields.custom.pairs_with),Kit items (product.metafields.custom.kit_items)
+siero-luce,Siero Luce,"<p>A lightweight vitamin C serum for a brighter, more even-looking complexion. Absorbs in seconds and sits well under sunscreen.</p>",FARSEA,Targeted care,"line:targeted, concern:radiance, concern:pigment, bestseller",TRUE,Title,Default Title,FS-SL-30,80,shopify,50,deny,manual,58.00,,TRUE,TRUE,active,Vitamin C serum,30 ml,"Visibly brighter skin
+Helps even out tone
+Antioxidant support every morning","Morning: 3–4 drops on clean skin, before moisturiser and SPF.","Vitamin C (ascorbyl glucoside), ferulic acid, vitamin E, hyaluronic acid.",Lasers · Pigmentation treatments,
+notte-retinale,Notte Retinale,<p>A rich night cream with retinal to smooth the look of fine lines and refine texture while you sleep.</p>,FARSEA,Targeted care,"line:targeted, concern:lines, new",TRUE,Title,Default Title,FS-NR-30,80,shopify,50,deny,manual,64.00,,TRUE,TRUE,active,Retinal night cream,30 ml,"Smoother-looking skin
+Refined texture
+Cushioned with squalane and ceramides","Evening, 2–3 times a week at first, then nightly. Pause before and after laser or peel treatments as advised by your doctor. Not recommended during pregnancy.","Retinal, squalane, ceramides, niacinamide.",Injectables · Skin laxity,
+gel-purificante,Gel Purificante,"<p>A fresh, oil-free gel that balances shine and helps pores look smaller.</p>",FARSEA,Targeted care,"line:targeted, concern:blemish",TRUE,Title,Default Title,FS-GP-30,80,shopify,50,deny,manual,34.00,,TRUE,TRUE,active,Niacinamide gel,30 ml,"Less shine through the day
+Pores look refined
+Light, oil-free texture","Morning and evening on clean skin, alone or under moisturiser.","Niacinamide 5%, zinc PCA, green tea extract.",Acne · Scars and marks,
+crema-barriera,Crema Barriera,"<p>A comforting moisturiser that supports the skin barrier, ideal in the days after peels, lasers and microneedling.</p>",FARSEA,Daily essentials,"line:daily, concern:after-treatment, bestseller",TRUE,Title,Default Title,FS-CB-50,110,shopify,50,deny,manual,42.00,,TRUE,TRUE,active,Repair moisturiser,50 ml,"Soothes tight, dry skin
+Supports the skin barrier
+Fragrance-free",Morning and evening as the last step before SPF.,"Ceramides, panthenol, shea butter, glycerin.",Peels · Lasers · Microneedling,
+acqua-detergente,Acqua Detergente,<p>A soft gel cleanser that removes make-up and sunscreen without leaving skin tight.</p>,FARSEA,Daily essentials,"line:daily, concern:after-treatment",TRUE,Title,Default Title,FS-AD-200,260,shopify,50,deny,manual,28.00,,TRUE,TRUE,active,Gentle cleanser,200 ml,"Cleans without stripping
+Suitable after treatments
+For all skin types","Massage onto damp skin morning and evening, then rinse.","Glycerin, oat extract, mild plant-based cleansers.",All facial treatments,
+schermo-spf-50,Schermo SPF 50,<p>A very high protection mineral sunscreen with a sheer finish. The essential step after any laser or pigmentation treatment.</p>,FARSEA,Daily essentials,"line:daily, concern:pigment, concern:after-treatment",TRUE,Title,Default Title,FS-SPF-50,110,shopify,50,deny,manual,36.00,,TRUE,TRUE,active,Mineral sunscreen,50 ml,"SPF 50 broad-spectrum
+Sheer, no white cast
+Suitable for sensitive skin",Every morning as the last step. Reapply every two hours in the sun.,"Zinc oxide, titanium dioxide, vitamin E.",Lasers · Peels · Pigmentation,
+shampoo-delicato,Shampoo Delicato,"<p>A mild, low-foam shampoo for sensitive scalps, gentle enough for the weeks after a hair transplant.</p>",FARSEA,Hair line,line:hair,TRUE,Title,Default Title,FS-SH-250,310,shopify,50,deny,manual,26.00,,TRUE,TRUE,active,Gentle shampoo,250 ml,"Gentle on the scalp
+Leaves hair soft
+Suitable after hair treatments","Massage gently into wet hair, leave for one minute, rinse.","Mild cleansers, panthenol, rosemary extract.",Hair transplant · Hair treatments,
+kit-post-trattamento,Kit Post-Trattamento,"<p>The three products we send home after peels, lasers and microneedling.</p>",FARSEA,Kit,"line:daily, concern:after-treatment",TRUE,Title,Default Title,FS-KIT-POST,480,shopify,20,deny,manual,92.00,106.00,TRUE,TRUE,active,Post-treatment kit,3 products,,"Cleanse, apply Crema Barriera, finish with SPF 50 every morning.",,Peels · Lasers · Microneedling,"Acqua Detergente | 200 ml
+Crema Barriera | 50 ml
+Schermo SPF 50 | 50 ml"

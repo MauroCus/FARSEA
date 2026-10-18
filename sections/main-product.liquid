@@ -1,0 +1,123 @@
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign images = product.media | where: 'media_type', 'image'
+  assign subtitle = product.metafields.custom.subtitle.value
+  assign size = product.metafields.custom.size.value
+  assign benefits = product.metafields.custom.benefits.value | newline_to_br | split: '<br />'
+  assign related = section.settings.related_collection
+-%}
+<section class="wrap" style="padding-block:clamp(32px,5vw,64px)">
+  <div class="pdp" data-product>
+    <div class="gallery">
+      <div class="g-main">
+        {%- if images.size > 0 -%}
+          {{ images.first | image_url: width: 1400 | image_tag: alt: images.first.alt, loading: 'eager', widths: '600, 900, 1200, 1400', sizes: '(max-width: 980px) 100vw, 52vw' }}
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag }}
+        {%- endif -%}
+      </div>
+      {%- if images.size > 1 -%}
+        <div class="thumbs">
+          {%- for image in images -%}
+            <button type="button" data-thumb="{{ image | image_url: width: 1400 }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="{{ 'products.image' | t: number: forloop.index }}">
+              {{ image | image_url: width: 160 | image_tag: alt: '', loading: 'lazy' }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="pdp-info">
+      {%- if product.type != blank -%}<span class="eyebrow">{{ product.type }}</span>{%- endif -%}
+      {%- if product.tags contains 'bestseller' -%}<span class="badge">{{ 'products.bestseller' | t }}</span>
+      {%- elsif product.tags contains 'new' -%}<span class="badge new">{{ 'products.new' | t }}</span>{%- endif -%}
+      <h1>{{ product.title }}</h1>
+      {%- if subtitle or size -%}<div class="sub">{{ subtitle }}{% if subtitle and size %} · {% endif %}{{ size }}</div>{%- endif -%}
+      <div class="pdp-price">
+        <span class="price" data-price>{{ variant.price | money }}</span>
+        {%- if variant.compare_at_price > variant.price -%}<s>{{ variant.compare_at_price | money }}</s>{%- endif -%}
+        <small>{{ 'products.vat_included' | t }}</small>
+      </div>
+      {%- if product.description != blank -%}<div class="pdp-desc rte">{{ product.description }}</div>{%- endif -%}
+      {%- if product.metafields.custom.benefits != blank -%}
+        <ul class="benefits">
+          {%- for b in benefits -%}{%- assign line = b | strip -%}{%- if line != blank -%}<li>{{ line }}</li>{%- endif -%}{%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- form 'product', product, data-product-form: '', id: 'ProductForm' -%}
+        {%- if product.has_only_default_variant -%}
+          <input type="hidden" name="id" value="{{ variant.id }}">
+        {%- else -%}
+          <div class="variant-pick" role="radiogroup" aria-label="{{ product.options.first }}" style="margin-bottom:14px">
+            {%- for v in product.variants -%}
+              <label>
+                <input type="radio" name="id" value="{{ v.id }}" data-price="{{ v.price | money | escape }}"{% if v.id == variant.id %} checked{% endif %}{% unless v.available %} disabled{% endunless %}>
+                <span>{{ v.title }}</span>
+              </label>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+        <div class="buy">
+          <div class="qty">
+            <button type="button" data-step="-1" aria-label="{{ 'products.less' | t }}">−</button>
+            <input type="number" name="quantity" value="1" min="1" max="20" aria-label="{{ 'products.quantity' | t }}" data-qty>
+            <button type="button" data-step="1" aria-label="{{ 'products.more' | t }}">+</button>
+          </div>
+          <button type="submit" class="btn btn-ink" data-title="{{ product.title | escape }}"{% unless variant.available %} disabled{% endunless %}>
+            {%- if variant.available -%}{{ 'products.add_to_bag' | t }}{%- else -%}{{ 'products.sold_out' | t }}{%- endif -%}
+          </button>
+        </div>
+      {%- endform -%}
+      <div class="ship-note">{% if section.settings.ship_note != blank %}{{ section.settings.ship_note }}{% else %}{{ 'products.ship_note' | t }}{% endif %}</div>
+
+      <div>
+        {%- if product.metafields.custom.how_to_use != blank -%}
+          <details open><summary>{{ 'products.how_to_use' | t }}</summary><p>{{ product.metafields.custom.how_to_use.value | newline_to_br }}</p></details>
+        {%- endif -%}
+        {%- if product.metafields.custom.ingredients != blank -%}
+          <details><summary>{{ 'products.ingredients' | t }}</summary><p>{{ product.metafields.custom.ingredients.value | newline_to_br }}</p></details>
+        {%- endif -%}
+      </div>
+
+      {%- if product.metafields.custom.pairs_with != blank -%}
+        <div class="pairs"><b>{{ 'products.pairs_with' | t }}</b>{{ product.metafields.custom.pairs_with.value }} · <a href="{{ routes.root_url }}#soluzioni">{{ 'products.see_treatments' | t }}</a></div>
+      {%- endif -%}
+
+      {%- if related != blank -%}
+        {%- assign shown = 0 -%}
+        <div class="also">
+          <span class="eyebrow">{{ 'products.complete_routine' | t }}</span>
+          <div class="also-row">
+            {%- for p in related.products -%}
+              {%- if p.id == product.id or shown >= 2 -%}{%- continue -%}{%- endif -%}
+              {%- assign shown = shown | plus: 1 -%}
+              <a class="mini" href="{{ p.url }}">
+                {%- if p.featured_media -%}{{ p.featured_media | image_url: width: 140 | image_tag: alt: '', loading: 'lazy' }}{%- endif -%}
+                <span><b>{{ p.title }}</b><span>{{ p.metafields.custom.subtitle.value }}</span></span>
+                <span class="price">{{ p.price | money }}</span>
+              </a>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="mobile-buy">
+    <div><b style="font-weight:400;font-family:var(--display);font-size:14px;display:block">{{ product.title }}</b><span class="price">{{ variant.price | money }}</span></div>
+    <button type="submit" form="ProductForm" class="btn btn-ink"{% unless variant.available %} disabled{% endunless %}>{{ 'products.add_to_bag' | t }}</button>
+  </div>
+</section>
+
+<script type="application/ld+json">{{ product | structured_data }}</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    { "type": "text", "id": "ship_note", "label": "Shipping note", "info": "Leave empty to use the default: Ships in 1–2 working days." },
+    { "type": "collection", "id": "related_collection", "label": "Products for “Complete the routine”", "info": "Two products from this collection are suggested on each product page." }
+  ]
+}
+{% endschema %}

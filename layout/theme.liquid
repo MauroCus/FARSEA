@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="{{ settings.color_sand }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <title>{{ page_title }}{% unless page_title contains shop.name %} · {{ shop.name }}{% endunless %}</title>
+  {%- if page_description -%}<meta name="description" content="{{ page_description | escape }}">{%- endif -%}
+  {%- if settings.favicon != blank -%}<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64 }}">{%- endif -%}
+
+  {{ 'zalando-sans-expanded.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+  {{ 'hanken-grotesk.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+  <style>
+    @font-face{font-family:"Zalando Sans Expanded";src:url({{ 'zalando-sans-expanded.woff2' | asset_url }}) format("woff2");font-weight:400;font-display:swap}
+    @font-face{font-family:"Hanken Grotesk";src:url({{ 'hanken-grotesk.woff2' | asset_url }}) format("woff2");font-weight:400;font-display:swap}
+  </style>
+  {{ 'farsea.css' | asset_url | stylesheet_tag }}
+  <style>
+    :root{
+      --sand:{{ settings.color_sand }};
+      --shell:{{ settings.color_shell }};
+      --ink:{{ settings.color_ink }};
+      --mute:{{ settings.color_mute }};
+      --sea:{{ settings.color_sea }};
+      --coral:{{ settings.color_coral }};
+      --terra:{{ settings.color_terra }};
+    }
+  </style>
+  {{ content_for_header }}
+</head>
+<body class="template-{{ template.name }}">
+  <a class="skip" href="#main">{{ 'general.skip' | t }}</a>
+  {% render 'logo-symbol' %}
+
+  {% sections 'header-group' %}
+
+  <main id="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% sections 'footer-group' %}
+
+  {% render 'cart-drawer' %}
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    window.FARSEA = {
+      routes: { cartAdd: {{ routes.cart_add_url | append: '.js' | json }}, cartChange: {{ routes.cart_change_url | append: '.js' | json }}, cart: {{ routes.cart_url | append: '.js' | json }} },
+      moneyFormat: {{ shop.money_format | json }},
+      freeShipping: {{ settings.free_shipping_threshold | times: 100 | json }},
+      locale: {{ request.locale.iso_code | json }},
+      t: {
+        added: {{ 'cart.added' | t | json }},
+        add: {{ 'products.add' | t | json }},
+        addedShort: {{ 'products.added' | t | json }},
+        remove: {{ 'cart.remove' | t | json }},
+        empty: {{ 'cart.empty' | t | json }},
+        away: {{ 'cart.away' | t | json }},
+        unlocked: {{ 'cart.unlocked' | t | json }},
+        error: {{ 'cart.error' | t | json }},
+        less: {{ 'products.less' | t | json }},
+        more: {{ 'products.more' | t | json }}
+      }
+    };
+  </script>
+  <script src="{{ 'farsea.js' | asset_url }}" defer></script>
+</body>
+</html>

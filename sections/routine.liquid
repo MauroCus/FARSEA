@@ -1,0 +1,44 @@
+<section id="{{ section.settings.anchor | default: 'routine' }}" class="routine wrap">
+  <div class="head">
+    <h2>{{ section.settings.heading }}</h2>
+    {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
+  </div>
+  <div class="steps">
+    {%- for block in section.blocks -%}
+      {%- assign p = block.settings.product -%}
+      <div class="step" {{ block.shopify_attributes }}>
+        <span class="big-n">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <div>
+          <span class="n">{{ block.settings.step | upcase }}</span>
+          <h3>{% if p != blank %}{{ p.title }}{% else %}{{ block.settings.step }}{% endif %}</h3>
+          <p>{{ block.settings.text }}</p>
+          {%- if p != blank -%}<a href="{{ p.url }}">{{ section.settings.link_label }}</a>{%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Routine steps",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your routine in three steps" },
+    { "type": "text", "id": "text", "label": "Text", "default": "The order our doctors recommend, morning and evening." },
+    { "type": "text", "id": "link_label", "label": "Link label", "default": "See product" },
+    { "type": "text", "id": "anchor", "label": "Section anchor", "default": "routine" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "step", "label": "Step name", "default": "Cleanse" },
+        { "type": "textarea", "id": "text", "label": "Text" },
+        { "type": "product", "id": "product", "label": "Product" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Routine steps" }]
+}
+{% endschema %}

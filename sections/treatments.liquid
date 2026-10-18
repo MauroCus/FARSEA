@@ -1,0 +1,53 @@
+<section id="{{ section.settings.anchor | default: 'soluzioni' }}" class="wrap" data-slider data-delay="{{ section.settings.delay | times: 1000 }}">
+  <div class="head">
+    <h2>{{ section.settings.heading }}</h2>
+    {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
+  </div>
+  <div class="rail-view" data-rail-view tabindex="0" aria-roledescription="carousel" aria-label="{{ section.settings.heading | escape }}">
+    <div class="rail" data-rail>
+      {%- for block in section.blocks -%}
+        <a class="card" href="{{ block.settings.link | default: '#contatti' }}" {{ block.shopify_attributes }}>
+          <div class="ph">{% render 'img', image: block.settings.image, fallback: block.settings.fallback, alt: block.settings.image_alt, sizes: '(max-width: 600px) 70vw, 30vw', width: 900 %}</div>
+          <h3>{{ block.settings.title }}</h3>
+          <span>{{ block.settings.text }}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+  <div class="rail-ctrl">
+    {%- if section.settings.button_label != blank -%}
+      <a class="btn btn-line" href="{{ section.settings.button_link | default: '#contatti' }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+    <div class="progress" aria-hidden="true"><span class="count" data-count>01 / {{ section.blocks.size | prepend: '0' | slice: -2, 2 }}</span><i class="bar-track"><b data-tick></b></i></div>
+    <div class="arrows"><button type="button" data-prev aria-label="{{ 'slider.previous' | t }}">←</button><button type="button" data-next aria-label="{{ 'slider.next' | t }}">→</button></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Treatments slider",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our treatments" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Six treatment areas, one medical team that follows you from the first consultation to the final check-up." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "View all treatments" },
+    { "type": "text", "id": "button_link", "label": "Button link", "default": "#contatti" },
+    { "type": "range", "id": "delay", "label": "Autoplay speed (seconds)", "min": 3, "max": 10, "step": 1, "default": 5 },
+    { "type": "text", "id": "anchor", "label": "Section anchor", "default": "soluzioni", "info": "Used by menu links such as /#soluzioni." }
+  ],
+  "blocks": [
+    {
+      "type": "treatment",
+      "name": "Treatment",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image description" },
+        { "type": "text", "id": "fallback", "label": "Placeholder image (theme file)" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Treatment" },
+        { "type": "text", "id": "text", "label": "Text" },
+        { "type": "text", "id": "link", "label": "Link", "default": "#contatti" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Treatments slider" }]
+}
+{% endschema %}

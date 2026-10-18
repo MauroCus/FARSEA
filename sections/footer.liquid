@@ -1,0 +1,64 @@
+{%- assign menu = linklists[section.settings.menu] -%}
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <a class="logo" href="{{ routes.root_url }}"><svg role="img" aria-label="{{ shop.name }}" viewBox="0 0 113.1 27.6"><use href="#farsea"/></svg></a>
+        {%- if section.settings.tagline != blank -%}<p style="margin:16px 0 0;opacity:.65;max-width:30ch;font-size:15px">{{ section.settings.tagline }}</p>{%- endif -%}
+      </div>
+      <div>
+        <h4>{{ section.settings.menu_heading }}</h4>
+        <ul>
+          {%- if menu.links.size > 0 -%}
+            {%- for link in menu.links -%}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{%- endfor -%}
+          {%- else -%}
+            <li><a href="{{ routes.root_url }}#esigenze">{{ 'nav.concerns' | t }}</a></li>
+            <li><a href="{{ routes.root_url }}#soluzioni">{{ 'nav.treatments' | t }}</a></li>
+            <li><a href="{{ routes.all_products_collection_url }}">{{ 'nav.shop' | t }}</a></li>
+            <li><a href="{{ routes.root_url }}#approccio">{{ 'nav.about' | t }}</a></li>
+            <li><a href="{{ routes.root_url }}#contatti">{{ 'nav.contact' | t }}</a></li>
+          {%- endif -%}
+        </ul>
+      </div>
+      <div>
+        <h4>{{ 'nav.contact' | t }}</h4>
+        <ul>
+          {%- if settings.address != blank -%}<li>{{ settings.address }}</li>{%- endif -%}
+          {%- if settings.phone != blank -%}<li><a href="tel:{{ settings.phone | remove: ' ' }}">{{ settings.phone }}</a></li>{%- endif -%}
+          {%- if settings.email != blank -%}<li><a href="mailto:{{ settings.email }}">{{ settings.email }}</a></li>{%- endif -%}
+        </ul>
+      </div>
+      <div>
+        <h4>Social</h4>
+        <ul>
+          {%- if settings.social_instagram != blank -%}<li><a href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Instagram</a></li>{%- endif -%}
+          {%- if settings.social_facebook != blank -%}<li><a href="{{ settings.social_facebook }}" target="_blank" rel="noopener">Facebook</a></li>{%- endif -%}
+          {%- if settings.social_linkedin != blank -%}<li><a href="{{ settings.social_linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{%- endif -%}
+          {%- if settings.social_instagram == blank and settings.social_facebook == blank and settings.social_linkedin == blank -%}<li style="opacity:.5">Instagram · Facebook</li>{%- endif -%}
+        </ul>
+      </div>
+    </div>
+    <svg class="f-mark" viewBox="0 0 113.1 27.6" aria-hidden="true"><use href="#farsea"/></svg>
+    <div class="f-bottom">
+      <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}{% if section.settings.legal_line != blank %} · {{ section.settings.legal_line }}{% endif %}</span>
+      <span>
+        {%- for policy in shop.policies -%}
+          <a href="{{ policy.url }}">{{ policy.title }}</a>{% unless forloop.last %} · {% endunless %}
+        {%- endfor -%}
+      </span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "section-footer",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Text under the logo", "default": "Aesthetic medicine clinic in Castiglione di Mare." },
+    { "type": "text", "id": "menu_heading", "label": "Menu heading", "default": "Menu" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" },
+    { "type": "text", "id": "legal_line", "label": "Legal line", "default": "VAT 00000000000", "info": "Company and VAT details shown next to the copyright." }
+  ]
+}
+{% endschema %}

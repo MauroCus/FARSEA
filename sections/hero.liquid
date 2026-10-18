@@ -1,0 +1,32 @@
+<div class="hero">
+  <div class="hero-copy wrap">
+    <h1>{{ section.settings.heading }}</h1>
+    <div class="hero-foot">
+      {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a class="btn btn-ink hero-cta" href="{{ section.settings.button_link | default: '#contatti' }}"><span>{{ section.settings.button_label }}</span> <span aria-hidden="true">→</span></a>
+      {%- endif -%}
+    </div>
+  </div>
+  <div class="hero-img">
+    {% render 'img', image: section.settings.image, fallback: section.settings.fallback, alt: section.settings.image_alt, loading: 'eager', sizes: '(max-width: 980px) 100vw, 50vw' %}
+    {%- if section.settings.caption != blank -%}<span class="coords">{{ section.settings.caption }}</span>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Healthy skin is the most natural form of <em>beauty</em>", "info": "Italic words are shown in the accent colour." },
+    { "type": "text", "id": "text", "label": "Text", "default": "Treatment plans built around you, for every skin and hair concern." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Book a visit" },
+    { "type": "text", "id": "button_link", "label": "Button link", "default": "#contatti" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_alt", "label": "Image description", "default": "Close-up of a woman's face in natural light" },
+    { "type": "text", "id": "fallback", "label": "Placeholder image (theme file)", "default": "img-hero.webp", "info": "Shown until you pick an image." },
+    { "type": "text", "id": "caption", "label": "Caption on the image", "default": "Tyrrhenian coast · 42°N" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

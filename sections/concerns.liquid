@@ -1,0 +1,47 @@
+<section id="{{ section.settings.anchor | default: 'esigenze' }}" class="concerns wrap" data-concerns>
+  <div class="head">
+    <h2>{{ section.settings.heading }}</h2>
+    {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
+  </div>
+  <div class="c-grid">
+    <ul class="c-list">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}><a href="{{ block.settings.link | default: '#contatti' }}" data-i="{{ forloop.index0 }}"{% if forloop.first %} class="on"{% endif %}><small>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</small><span>{{ block.settings.title }}</span><i>→</i></a></li>
+      {%- endfor -%}
+    </ul>
+    <figure class="c-preview" aria-hidden="true" style="margin:0">
+      {%- for block in section.blocks -%}
+        {%- if forloop.first -%}
+          {% render 'img', image: block.settings.image, fallback: block.settings.fallback, alt: '', class: 'on', width: 1000 %}
+        {%- else -%}
+          {% render 'img', image: block.settings.image, fallback: block.settings.fallback, alt: '', width: 1000 %}
+        {%- endif -%}
+      {%- endfor -%}
+      <figcaption data-caption>{{ section.blocks.first.settings.title }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Concerns",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your concerns" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Start from what you'd like to improve: we build a dedicated plan for each concern." },
+    { "type": "text", "id": "anchor", "label": "Section anchor", "default": "esigenze" }
+  ],
+  "blocks": [
+    {
+      "type": "concern",
+      "name": "Concern",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Concern" },
+        { "type": "image_picker", "id": "image", "label": "Preview image" },
+        { "type": "text", "id": "fallback", "label": "Placeholder image (theme file)" },
+        { "type": "text", "id": "link", "label": "Link", "default": "#contatti" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Concerns" }]
+}
+{% endschema %}

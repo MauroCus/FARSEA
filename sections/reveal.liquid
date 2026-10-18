@@ -1,0 +1,36 @@
+<section class="wrap">
+  <div class="reveal">
+    <div class="ph tall">{% render 'img', image: section.settings.image_1, fallback: section.settings.fallback_1, alt: section.settings.alt_1, width: 1400 %}</div>
+    <div class="ph mid">{% render 'img', image: section.settings.image_2, fallback: section.settings.fallback_2, alt: section.settings.alt_2, width: 900 %}</div>
+    <div class="ph mid">{% render 'img', image: section.settings.image_3, fallback: section.settings.fallback_3, alt: section.settings.alt_3, width: 900, style: 'object-position:38% 45%' %}</div>
+  </div>
+  <div class="reveal-copy">
+    <h2>{{ section.settings.heading }}</h2>
+    <div>
+      {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
+      {%- if section.settings.button_label != blank -%}<a class="btn btn-line" href="{{ section.settings.button_link | default: '#contatti' }}">{{ section.settings.button_label }}</a>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image band",
+  "settings": [
+    { "type": "image_picker", "id": "image_1", "label": "Large image" },
+    { "type": "text", "id": "alt_1", "label": "Large image description", "default": "Hands resting in the sea" },
+    { "type": "text", "id": "fallback_1", "label": "Placeholder (theme file)", "default": "img-hands-water.webp" },
+    { "type": "image_picker", "id": "image_2", "label": "Second image" },
+    { "type": "text", "id": "alt_2", "label": "Second image description", "default": "Woman seen from behind with wet dark hair" },
+    { "type": "text", "id": "fallback_2", "label": "Placeholder (theme file)", "default": "img-woman-back-hair.webp" },
+    { "type": "image_picker", "id": "image_3", "label": "Third image" },
+    { "type": "text", "id": "alt_3", "label": "Third image description", "default": "Close-up of a woman's eye in golden light" },
+    { "type": "text", "id": "fallback_3", "label": "Placeholder (theme file)", "default": "img-eye-golden.webp" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Enhance your <em>beauty</em> without changing who you are" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "The latest medical technology and careful listening. Every plan starts with a thorough consultation and adapts to you, session after session." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Price list" },
+    { "type": "text", "id": "button_link", "label": "Button link", "default": "#contatti" }
+  ],
+  "presets": [{ "name": "Image band" }]
+}
+{% endschema %}

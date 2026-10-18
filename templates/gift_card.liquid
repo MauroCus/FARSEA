@@ -1,0 +1,8 @@
+{{ 'farsea.css' | asset_url | stylesheet_tag }}
+<div class="wrap" style="max-width:520px;margin:60px auto;text-align:center;display:grid;gap:18px">
+  <h1 style="font-family:var(--display);font-weight:400">{{ shop.name }}</h1>
+  <p>{{ gift_card.initial_value | money }}</p>
+  <p style="font-size:28px;letter-spacing:.1em">{{ gift_card.code | format_code }}</p>
+  {%- if gift_card.expired -%}<p>Expired {{ gift_card.expires_on | date: format: 'date' }}</p>{%- endif -%}
+  <a class="btn btn-ink" href="{{ shop.url }}" style="justify-self:center">{{ shop.name }}</a>
+</div>
