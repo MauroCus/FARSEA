@@ -278,6 +278,22 @@
         "note": "Address, phone and email are set in Theme settings → Contact details.",
         "anchor": "contatti"
       }
+    },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "FARSEA skincare",
+        "heading": "Clinic care, <em>at home</em>",
+        "text": "The products our doctors use around every treatment, now available to take home.",
+        "products": [
+          "siero-luce",
+          "crema-barriera",
+          "notte-retinale",
+          "schermo-spf-50"
+        ],
+        "button_label": "Visit the shop",
+        "anchor": "shop-home"
+      }
     }
   },
   "order": [
@@ -286,6 +302,7 @@
     "concerns",
     "reveal",
     "approach",
+    "featured",
     "contact"
   ]
 }
