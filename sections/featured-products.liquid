@@ -1,0 +1,41 @@
+{%- liquid
+  assign shop_link = section.settings.button_link | default: routes.all_products_collection_url
+  if section.settings.products != blank
+    assign items = section.settings.products
+  else
+    assign items = collections.all.products | slice: 0, 4
+  endif
+-%}
+<section class="wrap featured" id="{{ section.settings.anchor | default: 'shop-home' }}">
+  <div class="head">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow" style="display:block;margin-bottom:14px;color:var(--mute)">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+    <div class="featured-intro">
+      {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
+      {%- if section.settings.button_label != blank -%}<a class="btn btn-line" href="{{ shop_link }}">{{ section.settings.button_label }} →</a>{%- endif -%}
+    </div>
+  </div>
+  <div class="p-grid">
+    {%- for product in items -%}
+      {% render 'product-card', product: product, index: forloop.index %}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured products",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small title", "default": "FARSEA skincare" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Clinic care, <em>at home</em>" },
+    { "type": "text", "id": "text", "label": "Text", "default": "The products our doctors use around every treatment, now available to take home." },
+    { "type": "product_list", "id": "products", "label": "Products", "limit": 4, "info": "Leave empty to show the first four products of the shop." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Visit the shop" },
+    { "type": "url", "id": "button_link", "label": "Button link", "info": "Leave empty to link to the shop." },
+    { "type": "text", "id": "anchor", "label": "Anchor (for links like /#shop-home)", "default": "shop-home" }
+  ],
+  "presets": [{ "name": "Featured products" }]
+}
+{% endschema %}
