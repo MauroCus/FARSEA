@@ -3,7 +3,16 @@
     "hero": {
       "type": "shop-hero",
       "settings": {
-        "product": "siero-luce"
+        "product": "siero-luce",
+        "eyebrow": "FARSEA skincare",
+        "heading": "Clinic care, <em>at home</em>",
+        "text": "The products our doctors use around every treatment, chosen to prepare your skin, protect results and keep your routine simple.",
+        "button_1_label": "Shop the range",
+        "button_1_link": "#shop",
+        "button_2_label": "Build your routine",
+        "button_2_link": "#routine",
+        "fallback": "img-shop-hero.webp",
+        "tag_text": "Bestseller · Vitamin C serum"
       }
     },
     "trust": {
@@ -118,7 +127,9 @@
       ],
       "settings": {
         "kit": "kit-post-trattamento",
-        "kit_position": 3
+        "kit_position": 3,
+        "heading": "The range",
+        "text": "Seven essentials, each linked to the treatments it supports."
       }
     },
     "routine": {
@@ -154,7 +165,12 @@
         "s1",
         "s2"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Your routine in three steps",
+        "text": "The order our doctors recommend, morning and evening.",
+        "link_label": "See product",
+        "anchor": "routine"
+      }
     },
     "faq": {
       "type": "faq",
@@ -194,7 +210,11 @@
         "q2",
         "q3"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Questions",
+        "text": "Not sure what's right for your skin? Ask at your next visit and we'll build your routine with you.",
+        "anchor": "faq"
+      }
     }
   },
   "order": [

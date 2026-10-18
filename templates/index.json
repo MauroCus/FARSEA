@@ -2,7 +2,15 @@
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "heading": "Healthy skin is the most natural form of <em>beauty</em>",
+        "text": "Treatment plans built around you, for every skin and hair concern.",
+        "button_label": "Book a visit",
+        "button_link": "#contatti",
+        "image_alt": "Close-up of a woman's face in natural light",
+        "fallback": "img-hero.webp",
+        "caption": "Tyrrhenian coast · 42°N"
+      }
     },
     "treatments": {
       "type": "treatments",
@@ -76,7 +84,13 @@
         "t4",
         "t5"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Our treatments",
+        "text": "Six treatment areas, one medical team that follows you from the first consultation to the final check-up.",
+        "button_label": "View all treatments",
+        "button_link": "#contatti",
+        "anchor": "soluzioni"
+      }
     },
     "concerns": {
       "type": "concerns",
@@ -174,11 +188,26 @@
         "c8",
         "c9"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Your concerns",
+        "text": "Start from what you'd like to improve: we build a dedicated plan for each concern.",
+        "anchor": "esigenze"
+      }
     },
     "reveal": {
       "type": "reveal",
-      "settings": {}
+      "settings": {
+        "alt_1": "Hands resting in the sea",
+        "fallback_1": "img-hands-water.webp",
+        "alt_2": "Woman seen from behind with wet dark hair",
+        "fallback_2": "img-woman-back-hair.webp",
+        "alt_3": "Close-up of a woman's eye in golden light",
+        "fallback_3": "img-eye-golden.webp",
+        "heading": "Enhance your <em>beauty</em> without changing who you are",
+        "text": "The latest medical technology and careful listening. Every plan starts with a thorough consultation and adapts to you, session after session.",
+        "button_label": "Price list",
+        "button_link": "#contatti"
+      }
     },
     "approach": {
       "type": "approach",
@@ -234,11 +263,21 @@
         "a2",
         "a3"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Our approach",
+        "text": "Four principles guide every treatment, from the first conversation to the follow-up visits.",
+        "anchor": "approccio"
+      }
     },
     "contact": {
       "type": "contact",
-      "settings": {}
+      "settings": {
+        "heading": "A question? <em>Write to us</em> and we'll reply as soon as we can.",
+        "hours": "Mon – Fri 9:00 – 19:00 · Sat 9:00 – 13:00",
+        "topics": "First consultation, Injectables, Lasers, Hair treatments, Shop order, Other",
+        "note": "Address, phone and email are set in Theme settings → Contact details.",
+        "anchor": "contatti"
+      }
     }
   },
   "order": [
